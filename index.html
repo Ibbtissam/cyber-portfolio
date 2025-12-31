@@ -942,20 +942,22 @@
                     to contact me. I’ll be happy to connect.
                 </p>
 
-                <form action="https://api.web3forms.com/submit" method="POST" class="space-y-6">
+                <form id="contactForm" action="https://api.web3forms.com/submit" method="POST" class="space-y-6">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <input type="hidden" name="access_key" value="7ce3b532-783f-49b0-a7eb-729b0846f2ca">
-                        <input type="text" name="name" placeholder="Your Name"
+                        <input type="text" name="name" id="name" placeholder="Your Name"
                             class="w-full px-4 py-3 bg-dark border border-gray-700 rounded-lg text-white focus:outline-none focus:border-neon transition-colors duration-300">
-                        <input type="email" name="email" placeholder="Your Email"
+                        <input type="email" name="email" id="email" placeholder="Your Email"
                             class="w-full px-4 py-3 bg-dark border border-gray-700 rounded-lg text-white focus:outline-none focus:border-neon transition-colors duration-300">
                     </div>
-                    <textarea name="message" rows="5" placeholder="Your Message"
+                    <textarea name="message" id="message" rows="5" placeholder="Your Message"
                         class="w-full px-4 py-3 bg-dark border border-gray-700 rounded-lg text-white focus:outline-none focus:border-neon transition-colors duration-300"></textarea>
-                    <button type="submit"
+                    <button type="submit" id="submitBtn"
                         class="w-full md:w-auto px-8 py-4 bg-neon text-black font-bold uppercase tracking-widest rounded-2xl hover:scale-105 hover:shadow-neon transition-transform duration-300">
                         Send Message
                     </button>
+                </form>
+
         </section>
     </main>
 
@@ -1209,6 +1211,35 @@
             </a>
         `).join('');
         }</script>
+
+
+
+
+    <script>
+        const form = document.getElementById("contactForm");
+        const submitBtn = document.getElementById("submitBtn");
+
+        form.addEventListener("submit", function (e) {
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const message = document.getElementById("message").value.trim();
+
+            // Simple validation
+            if (!name || !email || !message) {
+                e.preventDefault(); // form submit roko
+                alert("Please fill in your Name, Email, and Message before sending.");
+                return false;
+            }
+
+            // Optional: Email format check
+            const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+            if (!email.match(emailPattern)) {
+                e.preventDefault();
+                alert("Please enter a valid email address.");
+                return false;
+            }
+        });
+    </script>
 
 
 
