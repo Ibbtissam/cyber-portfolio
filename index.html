@@ -705,13 +705,13 @@
             <h2 class="text-3xl ml-20 md:text-4xl font-black  text-white mb-16 tracking-widest">Achievements
             </h2>
 
-            <div class="  ml-20 ">
+            <div class="  ml-[30px] ">
 
                 <!-- Card 1 -->
                 <div class="bg-gradient-to-br from-[#0A1A2] to-[#0A1A2] backdrop-blur 
                    hover:border-neon hover:shadow-neon transition-all duration-500
                 rounded-2xl px-6 py-5 min-w-[280px] 
-                shadow-xl hover:-translate-y-1 transition border border-gray-500 w-[400px] mb-3.5">
+                shadow-xl hover:-translate-y-1 transition border border-gray-500 sm:w-120 lg:w-175 mb-3.5">
                     <p class="flex items-center gap-2 text-sm">
                         <span class="font-semibold">TryHackMe</span> – 112 rooms completed
                     </p>
@@ -724,7 +724,7 @@
                 <div class="bg-gradient-to-br from-[#0A1A2] to-[#0A1A2] backdrop-blur 
                    hover:border-neon hover:shadow-neon transition-all duration-500
                 rounded-2xl px-6 py-5 min-w-[280px] 
-                shadow-xl hover:-translate-y-1 transition border border-gray-500 w-[700px]">
+                shadow-xl hover:-translate-y-1 transition border border-gray-500 sm:w-[400px] lg:w-[700px]">
                     <p class="flex items-center gap-2 text-sm">
                         🎓 IEEE Member
                     </p>
@@ -733,7 +733,7 @@
                         Learner
                     </p>
                 </div>
-                
+
 
             </div>
         </section>
@@ -1214,15 +1214,33 @@
 
     <script>
         function openModal(imageSrc) {
-            document.getElementById("modalImage").src = imageSrc;
-            document.getElementById("imageModal").classList.remove("hidden");
-            document.getElementById("imageModal").classList.add("flex");
+            const modal = document.getElementById("imageModal");
+            const image = document.getElementById("modalImage");
+
+            image.src = imageSrc;
+            modal.classList.remove("hidden");
+            modal.classList.add("flex");
+
+            // Mobile scroll lock
+            document.body.style.overflow = "hidden";
         }
 
         function closeModal() {
-            document.getElementById("imageModal").classList.add("hidden");
-            document.getElementById("imageModal").classList.remove("flex");
+            const modal = document.getElementById("imageModal");
+
+            modal.classList.add("hidden");
+            modal.classList.remove("flex");
+
+            // Restore scroll
+            document.body.style.overflow = "";
         }
+
+        // ESC key support (desktop)
+        document.addEventListener("keydown", function (e) {
+            if (e.key === "Escape") {
+                closeModal();
+            }
+        });
     </script>
 
 
@@ -1231,13 +1249,21 @@
 
 
 
+
     <!-- Image Popup Modal -->
-    <div id="imageModal" class="fixed inset-0 bg-black/80 hidden items-center justify-center z-50">
+    <div id="imageModal" onclick="closeModal()"
+        class="fixed inset-0 bg-black/80 hidden items-center justify-center z-50">
 
-        <span onclick="closeModal()" class="absolute top-6 right-8 text-white text-4xl cursor-pointer">&times;</span>
+        <!-- Stop close when clicking image -->
+        <img id="modalImage" onclick="event.stopPropagation()" class="max-w-[90%] max-h-[90%] rounded-xl shadow-2xl">
 
-        <img id="modalImage" class="max-w-[90%] max-h-[90%] rounded-xl shadow-2xl">
+        <!-- Close button -->
+        <span onclick="closeModal(); event.stopPropagation();"
+            class="absolute top-4 right-6 text-white text-4xl font-bold cursor-pointer select-none">
+            &times;
+        </span>
     </div>
+
 
 </body>
 
