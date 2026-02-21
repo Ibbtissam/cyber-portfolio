@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flex Cards - Smooth + No Scroll Stuck</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html, body {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+  </style>
+</head>
+
+<body class="bg-slate-950 text-white">
+
+  <!-- Cards inside ONE div -->
+  <div class="max-w-5xl mx-auto px-6 py-10">
+    <div class="rounded-3xl border border-white/10 bg-white/5 p-6 md:p-8 shadow-2xl relative overflow-hidden">
+
+      <!-- Soft background blobs / lines -->
+      <div class="absolute -top-16 -right-10 w-56 h-56 rounded-full border border-white/5"></div>
+      <div class="absolute top-10 right-20 w-24 h-40 rounded-full border border-white/5 rotate-12"></div>
+      <div class="absolute -bottom-20 -left-20 w-72 h-72 rounded-full border border-white/5"></div>
+
+      <!-- Heading -->
+      <div class="text-center mb-10 relative z-10">
+        <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight">Flex Cards</h1>
+        <p class="mt-3 text-slate-300 text-xs md:text-sm tracking-[0.2em] uppercase">HTML CSS JS</p>
+      </div>
+
+      <!-- Cards -->
+      <div id="flexCards" class="flex items-stretch gap-3 md:gap-4 h-[220px] md:h-[260px] relative z-10">
+
+        <!-- Card 1 (active by default) -->
+        <button
+          type="button"
+          class="card group relative flex-[6] min-w-0 rounded-[28px] overflow-hidden transition-all duration-500 ease-out shadow-2xl"
+          data-active="true"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?q=80&w=1600&auto=format&fit=crop"
+            alt="Road in forest"
+            class="absolute inset-0 w-full h-full object-cover"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-white/10"></div>
+
+          <div class="absolute left-4 right-4 bottom-4 flex items-end justify-between">
+            <div class="card-text text-left transition-opacity duration-300 opacity-100">
+              <p class="text-white font-semibold text-sm md:text-base leading-tight">Oretenmauw</p>
+              <p class="text-white/80 text-xs md:text-sm">Omuke trughte a otufta</p>
+            </div>
+            <span class="w-9 h-9 rounded-full bg-white/90 text-slate-900 grid place-items-center shadow">🧭</span>
+          </div>
+        </button>
+
+        <!-- Card 2 -->
+        <button
+          type="button"
+          class="card group relative flex-[1] min-w-[44px] md:min-w-[52px] rounded-[28px] overflow-hidden transition-all duration-500 ease-out shadow-xl"
+          data-active="false"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=800&auto=format&fit=crop"
+            alt="Nature"
+            class="absolute inset-0 w-full h-full object-cover"
+          />
+          <div class="absolute inset-0 bg-black/20"></div>
+
+          <div class="absolute left-4 right-4 bottom-4 flex items-end justify-between">
+            <div class="card-text text-left transition-opacity duration-300 opacity-0">
+              <p class="text-white font-semibold text-sm md:text-base leading-tight">Nature</p>
+              <p class="text-white/80 text-xs md:text-sm">Green landscape concept</p>
+            </div>
+            <span class="w-8 h-8 rounded-full bg-white/90 text-slate-900 grid place-items-center text-sm shadow">🌿</span>
+          </div>
+        </button>
+
+        <!-- Card 3 -->
+        <button
+          type="button"
+          class="card group relative flex-[1] min-w-[44px] md:min-w-[52px] rounded-[28px] overflow-hidden transition-all duration-500 ease-out shadow-xl"
+          data-active="false"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1472396961693-142e6e269027?q=80&w=800&auto=format&fit=crop"
+            alt="Mountains"
+            class="absolute inset-0 w-full h-full object-cover"
+          />
+          <div class="absolute inset-0 bg-black/20"></div>
+
+          <div class="absolute left-4 right-4 bottom-4 flex items-end justify-between">
+            <div class="card-text text-left transition-opacity duration-300 opacity-0">
+              <p class="text-white font-semibold text-sm md:text-base leading-tight">Mountains</p>
+              <p class="text-white/80 text-xs md:text-sm">Adventure visual card</p>
+            </div>
+            <span class="w-8 h-8 rounded-full bg-white/90 text-slate-900 grid place-items-center text-sm shadow">🖐️</span>
+          </div>
+        </button>
+
+        <!-- Card 4 -->
+        <button
+          type="button"
+          class="card group relative flex-[1] min-w-[44px] md:min-w-[52px] rounded-[28px] overflow-hidden transition-all duration-500 ease-out shadow-xl"
+          data-active="false"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=800&auto=format&fit=crop"
+            alt="Desert"
+            class="absolute inset-0 w-full h-full object-cover"
+          />
+          <div class="absolute inset-0 bg-black/20"></div>
+
+          <div class="absolute left-4 right-4 bottom-4 flex items-end justify-between">
+            <div class="card-text text-left transition-opacity duration-300 opacity-0">
+              <p class="text-white font-semibold text-sm md:text-base leading-tight">Desert</p>
+              <p class="text-white/80 text-xs md:text-sm">Warm minimal scene</p>
+            </div>
+            <span class="w-8 h-8 rounded-full bg-white/90 text-slate-900 grid place-items-center text-sm shadow">💧</span>
+          </div>
+        </button>
+
+        <!-- Card 5 -->
+        <button
+          type="button"
+          class="card group relative flex-[1] min-w-[44px] md:min-w-[52px] rounded-[28px] overflow-hidden transition-all duration-500 ease-out shadow-xl"
+          data-active="false"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?q=80&w=800&auto=format&fit=crop"
+            alt="Lake"
+            class="absolute inset-0 w-full h-full object-cover"
+          />
+          <div class="absolute inset-0 bg-black/20"></div>
+
+          <div class="absolute left-4 right-4 bottom-4 flex items-end justify-between">
+            <div class="card-text text-left transition-opacity duration-300 opacity-0">
+              <p class="text-white font-semibold text-sm md:text-base leading-tight">Lake</p>
+              <p class="text-white/80 text-xs md:text-sm">Scenic water view</p>
+            </div>
+            <span class="w-8 h-8 rounded-full bg-white/90 text-slate-900 grid place-items-center text-sm shadow">⚙️</span>
+          </div>
+        </button>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- IMAGE MODAL / LIGHTBOX -->
+  <div
+    id="imageModal"
+    class="fixed inset-0 z-[9999] hidden items-center justify-center bg-black/70 backdrop-blur-md p-4"
+  >
+    <div id="modalBackdrop" class="absolute inset-0"></div>
+
+    <div class="relative z-10 max-w-5xl w-full flex justify-center">
+      <img
+        id="modalImage"
+        src=""
+        alt="Preview"
+        class="max-h-[85vh] w-auto max-w-full object-contain rounded-2xl shadow-2xl border border-white/10"
+      />
+    </div>
+  </div>
+
+  <script>
+    const cards = document.querySelectorAll(".card");
+    const flexCards = document.getElementById("flexCards");
+    const imageModal = document.getElementById("imageModal");
+    const modalImage = document.getElementById("modalImage");
+    const modalBackdrop = document.getElementById("modalBackdrop");
+
+    // Modal open karna
+    function openModal(src, alt = "Preview") {
+      modalImage.src = src;
+      modalImage.alt = alt;
+
+      // Modal dikhayein
+      imageModal.classList.remove("hidden");
+      imageModal.classList.add("flex");
+
+      // Simple aur safe tarika jisse screen stuck nahi hoti
+      document.body.style.overflow = "hidden"; 
+    }
+
+    // Modal close karna
+    function closeModal() {
+      // Modal chupayein
+      imageModal.classList.add("hidden");
+      imageModal.classList.remove("flex");
+
+      modalImage.src = "";
+      modalImage.alt = "Preview";
+
+      // Scroll ko wapas normal kar dein
+      document.body.style.overflow = ""; 
+    }
+
+    // Active card set karna (Hover aur Animation ke liye)
+    function setActiveCard(activeCard) {
+      cards.forEach((c) => {
+        const isActive = c === activeCard;
+
+        c.dataset.active = isActive ? "true" : "false";
+        c.classList.remove("flex-[6]", "flex-[1]");
+        c.classList.add(isActive ? "flex-[6]" : "flex-[1]");
+
+        const textWrap = c.querySelector(".card-text");
+        if (textWrap) textWrap.style.opacity = isActive ? "1" : "0";
+      });
+    }
+
+    // Har card par hover aur click ka event lagana
+    cards.forEach((card) => {
+      card.addEventListener("mouseenter", () => setActiveCard(card));
+      card.addEventListener("click", () => {
+        const img = card.querySelector("img");
+        if (img) openModal(img.src, img.alt);
+      });
+    });
+
+    // Container ke bahar mouse jaye to pehla card active ho jaye
+    if (flexCards && cards.length) {
+      flexCards.addEventListener("mouseleave", () => setActiveCard(cards[0]));
+    }
+
+    // Shuru mein pehla card active rakhna
+    if (cards.length) setActiveCard(cards[0]);
+
+    // Modal ke background (backdrop) par click karne se close ho
+    modalBackdrop.addEventListener("click", closeModal);
+
+    // Agar image ke upar click karein to modal close na ho
+    modalImage.addEventListener("click", (e) => e.stopPropagation());
+
+    // Keyboard ki ESC (Escape) key dabane se modal close ho
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && !imageModal.classList.contains("hidden")) {
+        closeModal();
+      }
+    });
+  </script>
+
+</body>
+</html>
